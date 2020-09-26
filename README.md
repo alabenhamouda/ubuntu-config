@@ -1,12 +1,16 @@
 # Bashrc File
 ## Styling prompt
+```bash
 PS1="\[\e[1m\]"
 PS1+="\[\e[31m\]\w "
 PS1+="\[\e[34m\]-> "
 PS1+="\[\e[0m\]"
+```
 ## Competitive Programming Aliases for Compiling and Boilerplate
+```bash
 alias compile="g++ -O2 -Wall main.cpp -o main"
 alias main="cat ~/.template > main.cpp && touch input"
+```
 
 # Competitive Programming Template
 ```c++
