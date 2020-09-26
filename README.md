@@ -80,5 +80,5 @@ set shiftwidth=4
 set number
 ```
 # Terminal styling
-Use this [github repo](https://github.com/Mayccoll/Gogh) to add themes to gnome terminal
+Use this [github repo](https://github.com/Mayccoll/Gogh) to add themes to gnome terminal <br />
 Current profile: A. Atom and increase font size to 14
