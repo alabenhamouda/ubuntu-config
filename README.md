@@ -35,7 +35,7 @@ echo "options r8822be aspm=0" | sudo tee /etc/modprobe.d/r8822be.conf
 
 # .vimrc File
 ```vim
-set nocompatible       " be iMproved, required
+set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -62,12 +62,15 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'preservim/nerdtree'
+Plugin 'ycm-core/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 set showcmd
-nnoremap <C-p> "+p
+nnoremap <C-l> A;<Esc>
+nnoremap <C-k> A;<Esc>o
+" nnoremap <C-p> "+p
 
 set termguicolors
 let ayucolor="dark"
@@ -78,6 +81,10 @@ set tabstop=4
 set shiftwidth=4
 
 set number
+syntax on
+let g:ycm_confirm_extra_conf = 0
+set clipboard=unnamedplus
+nmap <C-n> :NERDTreeToggle<CR>
 ```
 # Terminal styling
 Use this [github repo](https://github.com/Mayccoll/Gogh) to add themes to gnome terminal <br />
