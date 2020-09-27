@@ -40,58 +40,8 @@ echo "blacklist ideapad-laptop" | sudo tee -a /etc/modprobe.d/blacklist.conf
 ```
 
 # .vimrc File
-```vim
-set nocompatible              " be iMproved, required
-filetype off                  " required
+Content of .vimrc file is now available in the vimrc file in this repo
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'preservim/nerdtree'
-Plugin 'ycm-core/YouCompleteMe'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-set showcmd
-nnoremap <C-l> A;<Esc>
-nnoremap <C-k> A;<Esc>o
-" nnoremap <C-p> "+p
-
-set termguicolors
-let ayucolor="dark"
-colorscheme ayu
-set guifont=Monaco\ 20
-
-set tabstop=4
-set shiftwidth=4
-
-set number
-syntax on
-let g:ycm_confirm_extra_conf = 0
-set clipboard=unnamedplus
-nmap <C-n> :NERDTreeToggle<CR>
-```
 # Terminal styling
 Use this [github repo](https://github.com/Mayccoll/Gogh) to add themes to gnome terminal <br />
 Current profile: A. Atom and increase font size to 14
