@@ -31,9 +31,11 @@ int main(){
 }
 ```
 # Command fixing wifi issue
+```bash
 echo "options r8822be aspm=0" | sudo tee /etc/modprobe.d/r8822be.conf
+```
 
-## Also when blacklist the ideapad-laptop module first thing after ubuntu install
+## Also blacklist the ideapad-laptop module after new ubuntu install
 ```bash
 sudo modprobe -r ideapad-laptop
 echo "blacklist ideapad-laptop" | sudo tee -a /etc/modprobe.d/blacklist.conf
