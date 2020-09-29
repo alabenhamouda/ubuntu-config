@@ -26,41 +26,54 @@ Plugin 'ayu-theme/ayu-vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'preservim/nerdtree'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'https://github.com/neoclide/coc.nvim/tree/release'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'morhetz/gruvbox'
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'preservim/nerdcommenter'
+Plugin 'justinmk/vim-sneak'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-set showcmd
-" nnoremap <C-l> A;<Esc>
-" nnoremap <C-k> A;<Esc>o
-" nnoremap <C-p> "+p
+syntax on
 
+"general set config
+set showcmd
 set termguicolors
-" let ayucolor="dark"
-" colorscheme ayu
 " set guifont=Monaco\ 20
 " set guifont=Monaco\ Nerd\ Font\ 20
 set guifont=Hack\ Nerd\ Font\ Mono\ 20
 set encoding=UTF-8
-
 set tabstop=4
 set shiftwidth=4
-
 set number
-syntax on
-let g:ycm_confirm_extra_conf = 0
 set clipboard=unnamedplus
+set ttm=0
+
+" ycm configuration
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_warning_symbol = ''
+let g:ycm_error_symbol = ''
+"let g:ycm_add_preview_to_completeopt = 0
+set completeopt-=preview
+let g:ycm_autoclose_preview_window_after_completion = 1
+" end of ycm configuration
+
+" NERDTree config
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <Leader>f :NERDTreeFocus<CR>
+
+" airline config
 let g:airline_powerline_fonts = 1
 " let g:airline_theme = 'luna'
 let g:airline#extensions#tabline#enabled = 1
+
+" COLORSCHEME
 " autocmd vimenter * colorscheme gruvbox
-colorscheme gruvbox
-set background=dark
+let ayucolor="dark"
+colorscheme ayu
+"colorscheme gruvbox
+"set background=dark
