@@ -17,7 +17,7 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+"Plugin 'git://git.wincent.com/command-t.git'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -34,6 +34,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'preservim/nerdcommenter'
 Plugin 'justinmk/vim-sneak'
+Plugin 'preservim/tagbar'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -77,3 +78,10 @@ let ayucolor="dark"
 colorscheme ayu
 "colorscheme gruvbox
 "set background=dark
+
+"TAGBAR MAPPINGS
+nmap <Leader>gg :TagbarOpenAutoClose<CR>
+nmap <Leader>gc :TagbarClose<CR>
+
+"OPEN TERMINAL IN NEW TAB
+nmap <Leader>t :tabnew <Bar> :ter ++curwin<CR>
