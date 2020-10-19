@@ -26,7 +26,6 @@ Plugin 'ayu-theme/ayu-vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'preservim/nerdtree'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'https://github.com/neoclide/coc.nvim/tree/release'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -35,6 +34,8 @@ Plugin 'sainnhe/gruvbox-material'
 Plugin 'preservim/nerdcommenter'
 Plugin 'justinmk/vim-sneak'
 Plugin 'preservim/tagbar'
+Plugin 'tpope/vim-surround'
+Plugin 'AndrewRadev/splitjoin.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

@@ -8,8 +8,38 @@ PS1+="\[\e[0m\]"
 ```
 ## Competitive Programming Aliases for Compiling and Boilerplate
 ```bash
+function touch_template {
+	if [ -f ./main.cpp ]
+	then
+		echo "main.cpp already exists. Do you want to overwrite it?(y/n)"
+		read ans
+		if [ "$ans" == "y" ]
+		then
+			cat ~/.template > ./main.cpp
+		fi
+	else
+		cat ~/.template > ./main.cpp
+	fi
+	if [ ! -f ./input ]
+	then
+		touch input
+	fi
+}
+alias comp="cd ~/Projects/C++/competitive_programming/"
 alias compile="g++ -O2 -Wall main.cpp -o main"
-alias main="cat ~/.template > main.cpp && touch input"
+alias main="touch_template"
+function mkcp {
+	if [ -z "${1+x}" ]
+	then
+		echo "Pass in the name of the problem"
+	else
+		comp
+		mkdir $1
+		cd $1
+		touch_template
+	fi
+}
+export -f mkcp
 ```
 
 # Competitive Programming Template
