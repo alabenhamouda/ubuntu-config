@@ -45,7 +45,7 @@ function mkcp {
 	if [ $# -eq 0 ]
 	then
 		CLIP=$(xclip -se c -o)
-		PROB=$(~/Projects/C/mkcp/main $CLIP)
+		PROB=$(kebab-caseify $CLIP)
 		echo "Want to create this folder: $PROB?"
 		read -s -n 1 key
 		if [[ $key == "" ]]; then
@@ -54,7 +54,7 @@ function mkcp {
 			echo "Canceling"
 		fi
 	else
-		PROB=$(~/Projects/C/mkcp/main $@)
+		PROB=$(kebab-caseify $@)
 		create_problem $PROB
 	fi
 }
