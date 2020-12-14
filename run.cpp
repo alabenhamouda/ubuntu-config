@@ -2,6 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// C program to test the code against input extracted from the clipboard
+// uses xclip program be sure to install it first
+// compile this file and place the executable into the ~/bin directory
+
 int main(int argc, char* argv[]){
 	int c = 0;
 	int fromClipboard = 0, saveToInput = 0;

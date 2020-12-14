@@ -6,8 +6,13 @@ PS1+="\[\e[31m\]\w "
 PS1+="\[\e[34m\]-> "
 PS1+="\[\e[0m\]"
 ```
-## Competitive Programming Aliases for Compiling and Boilerplate
+## Competitive Programming utilities
 ```bash
+# aliases
+alias comp="cd ~/Projects/C++/competitive_programming/"
+alias compile="g++ -g -O2 -Wall main.cpp -o main"
+alias main="touch_template"
+# There is also a script to test the code 
 function touch_template {
 	if [ -f ./main.cpp ]
 	then
@@ -25,21 +30,50 @@ function touch_template {
 		touch input
 	fi
 }
-alias comp="cd ~/Projects/C++/competitive_programming/"
-alias compile="g++ -O2 -Wall main.cpp -o main"
-alias main="touch_template"
-function mkcp {
-	if [ -z "${1+x}" ]
+function create_problem {
+	comp
+	if [ -d ./$1 ]
 	then
-		echo "Pass in the name of the problem"
+		echo "Directory $1 already exists!"
 	else
-		comp
 		mkdir $1
 		cd $1
 		touch_template
 	fi
 }
+function mkcp {
+	if [ $# -eq 0 ]
+	then
+		CLIP=$(xclip -se c -o)
+		PROB=$(~/Projects/C/mkcp/main $CLIP)
+		echo "Want to create this folder: $PROB?"
+		read -s -n 1 key
+		if [[ $key == "" ]]; then
+			create_problem $PROB
+		else
+			echo "Canceling"
+		fi
+	else
+		PROB=$(~/Projects/C/mkcp/main $@)
+		create_problem $PROB
+	fi
+}
 export -f mkcp
+```
+## Move last downloaded file to directory
+```bash
+function movl {
+	TOMOVE="$(ls -t ~/Downloads | head -n 1)"
+	if [ -d $1 ]
+	then
+		mv "/home/alabh/Downloads/$TOMOVE" $1
+		cd $1
+		echo done.
+	else
+		echo "$1 is not a directory!"
+	fi
+}
+export -f movl
 ```
 
 # Competitive Programming Template
@@ -56,7 +90,6 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-
     return 0;
 }
 ```
