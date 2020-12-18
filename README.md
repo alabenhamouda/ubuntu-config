@@ -107,6 +107,9 @@ echo "blacklist ideapad-laptop" | sudo tee -a /etc/modprobe.d/blacklist.conf
 # .vimrc File
 Content of .vimrc file is now available in the vimrc file in this repo
 
+# .inputrc File
+Added inputrc file here to make tab key cycle through possible completions in terminal
+
 # Terminal styling
 Use this [github repo](https://github.com/Mayccoll/Gogh) to add themes to gnome terminal <br />
 Current profile: A. Atom and increase font size to 14
