@@ -37,6 +37,7 @@ Plugin 'justinmk/vim-sneak'
 Plugin 'preservim/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -87,3 +88,6 @@ nmap <Leader>gc :TagbarClose<CR>
 
 "OPEN TERMINAL IN NEW TAB
 nmap <Leader>t :tabnew <Bar> :ter ++curwin<CR>
+
+"PREVIEW MARKDOWN WITH GITHUB STYLE IN FIREFOX
+let vim_markdown_preview_github=1
