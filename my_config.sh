@@ -3,9 +3,11 @@ function touch_template {
 	then
 		echo "main.cpp already exists. Do you want to overwrite it?(y/n)"
 		read ans
-		if [ "$ans" == "y" ]
+		if [ $ans = "y" ]
 		then
 			cat ~/.template > ./main.cpp
+		else
+			echo "Canceling..."
 		fi
 	else
 		cat ~/.template > ./main.cpp
