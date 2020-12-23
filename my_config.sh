@@ -61,3 +61,4 @@ function movl {
 }
 bindkey '^ ' autosuggest-accept
 export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
