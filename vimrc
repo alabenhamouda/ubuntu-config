@@ -75,12 +75,15 @@ let g:airline_powerline_fonts = 1
 " let g:airline_theme = 'luna'
 let g:airline#extensions#tabline#enabled = 1
 
-" COLORSCHEME
-" autocmd vimenter * colorscheme gruvbox
-let ayucolor="dark"
-colorscheme ayu
+"COLORSCHEME
+"autocmd vimenter * colorscheme gruvbox
 "colorscheme gruvbox
 "set background=dark
+let ayucolor="dark"
+colorscheme ayu
+if !has("gui_running")
+	hi Normal guibg=NONE ctermbg=NONE
+endif
 
 "TAGBAR MAPPINGS
 nmap <Leader>gg :TagbarOpenAutoClose<CR>
