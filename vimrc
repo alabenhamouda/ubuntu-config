@@ -54,6 +54,7 @@ set encoding=UTF-8
 set tabstop=4
 set shiftwidth=4
 set number
+set rnu
 set clipboard=unnamedplus
 set ttm=0
 
@@ -94,3 +95,6 @@ nmap <Leader>t :tabnew <Bar> :ter ++curwin<CR>
 
 "PREVIEW MARKDOWN WITH GITHUB STYLE IN FIREFOX
 let vim_markdown_preview_github=1
+
+"ABBREVIATION(S)
+ab retret return ret
