@@ -38,6 +38,7 @@ Plugin 'preservim/tagbar'
 Plugin 'tpope/vim-surround'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+Plugin 'Chiel92/vim-autoformat'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -98,3 +99,8 @@ let vim_markdown_preview_github=1
 
 "ABBREVIATION(S)
 ab retret return ret
+
+"AUTOFORMAT UPON SAVING
+au BufWrite * :Autoformat
+let g:formatdef_my_custom_cpp = '"clang-format -style=''{BasedOnStyle: LLVM, IndentWidth: 4}''"'
+let g:formatters_cpp = ['my_custom_cpp']
