@@ -1,26 +1,26 @@
 # Zsh configuration
 install zsh then install [oh my zsh](https://github.com/ohmyzsh/ohmyzsh).<br />
-Current theme is "jonathan" and add 
+Current theme is "jonathan" and add
 [autosuggestion and syntax highlighting](https://gist.github.com/dogrocker/1efb8fd9427779c827058f873b94df95)
 and source ~/.my_config.sh file at the end of .zshrc file
 ## my_config.sh
 ```zsh
 function touch_template {
 	if [ -f ./main.cpp ]
-	then
-		echo "main.cpp already exists. Do you want to overwrite it?(y/n)"
-		read ans
-		if [ "$ans" == "y" ]
 		then
-			cat ~/.template > ./main.cpp
-		fi
-	else
-		cat ~/.template > ./main.cpp
-	fi
-	if [ ! -f ./input ]
-	then
-		touch input
-	fi
+			echo "main.cpp already exists. Do you want to overwrite it?(y/n)"
+			read ans
+			if [ "$ans" == "y" ]
+				then
+					cat ~/.template > ./main.cpp
+					fi
+			else
+				cat ~/.template > ./main.cpp
+					fi
+					if [ ! -f ./input ]
+						then
+							touch input
+							fi
 }
 alias acc="cd ~/Projects/C++/accelerated_c++/"
 alias comp="cd ~/Projects/C++/competitive_programming/"
@@ -29,42 +29,42 @@ alias main="touch_template"
 #alias run="xclip -selection c -o > ./input && ./main < input"
 function create_problem {
 	comp
-	if [ -d ./$1 ]
-	then
-		echo "Directory $1 already exists!"
-	else
-		mkdir $1
-		cd $1
-		touch_template
-	fi
+		if [ -d ./$1 ]
+			then
+				echo "Directory $1 already exists!"
+		else
+			mkdir $1
+				cd $1
+				touch_template
+				fi
 }
 function mkcp {
 	if [ $# -eq 0 ]
-	then
-		CLIP=$(xclip -se c -o)
-		PROB=$(kebab-caseify ${=CLIP})
-		echo "Want to create this folder: $PROB?"
-		read -sk 1 key
-		if [[ $key == $'\x0a' ]]; then
-			create_problem $PROB
-		else
-			echo "Canceling"
-		fi
+		then
+			CLIP=$(xclip -se c -o)
+			PROB=$(kebab-caseify ${=CLIP})
+			echo "Want to create this folder: $PROB?"
+			read -sk 1 key
+			if [[ $key == $'\x0a' ]]; then
+				create_problem $PROB
+			else
+				echo "Canceling"
+					fi
 	else
 		PROB=$(kebab-caseify $@)
-		create_problem $PROB
-	fi
+			create_problem $PROB
+			fi
 }
 function movl {
 	TOMOVE="$(ls -t ~/Downloads | head -n 1)"
-	if [ -d $1 ]
-	then
-		mv "/home/alabh/Downloads/$TOMOVE" $1
-		cd $1
-		echo done.
-	else
-		echo "$1 is not a directory!"
-	fi
+		if [ -d $1 ]
+			then
+				mv "/home/alabh/Downloads/$TOMOVE" $1
+				cd $1
+				echo done.
+		else
+			echo "$1 is not a directory!"
+				fi
 }
 bindkey '^ ' autosuggest-accept
 export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin
@@ -83,51 +83,51 @@ PS1+="\[\e[0m\]"
 alias comp="cd ~/Projects/C++/competitive_programming/"
 alias compile="g++ -g -O2 -Wall main.cpp -o main"
 alias main="touch_template"
-# There is also a script to test the code 
+# There is also a script to test the code
 function touch_template {
 	if [ -f ./main.cpp ]
-	then
-		echo "main.cpp already exists. Do you want to overwrite it?(y/n)"
-		read ans
-		if [ "$ans" == "y" ]
 		then
-			cat ~/.template > ./main.cpp
-		fi
-	else
-		cat ~/.template > ./main.cpp
-	fi
-	if [ ! -f ./input ]
-	then
-		touch input
-	fi
+			echo "main.cpp already exists. Do you want to overwrite it?(y/n)"
+			read ans
+			if [ "$ans" == "y" ]
+				then
+					cat ~/.template > ./main.cpp
+					fi
+			else
+				cat ~/.template > ./main.cpp
+					fi
+					if [ ! -f ./input ]
+						then
+							touch input
+							fi
 }
 function create_problem {
 	comp
-	if [ -d ./$1 ]
-	then
-		echo "Directory $1 already exists!"
-	else
-		mkdir $1
-		cd $1
-		touch_template
-	fi
+		if [ -d ./$1 ]
+			then
+				echo "Directory $1 already exists!"
+		else
+			mkdir $1
+				cd $1
+				touch_template
+				fi
 }
 function mkcp {
 	if [ $# -eq 0 ]
-	then
-		CLIP=$(xclip -se c -o)
-		PROB=$(kebab-caseify $CLIP)
-		echo "Want to create this folder: $PROB?"
-		read -s -n 1 key
-		if [[ $key == "" ]]; then
-			create_problem $PROB
-		else
-			echo "Canceling"
-		fi
+		then
+			CLIP=$(xclip -se c -o)
+			PROB=$(kebab-caseify $CLIP)
+			echo "Want to create this folder: $PROB?"
+			read -s -n 1 key
+			if [[ $key == "" ]]; then
+				create_problem $PROB
+			else
+				echo "Canceling"
+					fi
 	else
 		PROB=$(kebab-caseify $@)
-		create_problem $PROB
-	fi
+			create_problem $PROB
+			fi
 }
 export -f mkcp
 ```
@@ -135,14 +135,14 @@ export -f mkcp
 ```bash
 function movl {
 	TOMOVE="$(ls -t ~/Downloads | head -n 1)"
-	if [ -d $1 ]
-	then
-		mv "/home/alabh/Downloads/$TOMOVE" $1
-		cd $1
-		echo done.
-	else
-		echo "$1 is not a directory!"
-	fi
+		if [ -d $1 ]
+			then
+				mv "/home/alabh/Downloads/$TOMOVE" $1
+				cd $1
+				echo done.
+		else
+			echo "$1 is not a directory!"
+				fi
 }
 export -f movl
 ```
@@ -158,10 +158,10 @@ typedef long double ld;
 using namespace std;
 
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    return 0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	return 0;
 }
 ```
 # Command fixing wifi issue
@@ -183,4 +183,5 @@ Added inputrc file here to make tab key cycle through possible completions in te
 
 # Terminal styling
 Use this [github repo](https://github.com/Mayccoll/Gogh) to add themes to gnome terminal <br />
+Install this [font](https://github.com/microsoft/cascadia-code) <br />
 Current profile: Azu and increase font size to 16
