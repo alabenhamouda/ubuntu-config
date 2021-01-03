@@ -1,38 +1,46 @@
-#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
-// C program to test the code against input extracted from the clipboard
-// uses xclip program be sure to install it first
-// compile this file and place the executable into the ~/bin directory
-
-int main(int argc, char* argv[]){
-	int c = 0;
-	int fromClipboard = 0, saveToInput = 0;
-	if(system("[ -e main.cpp ]")){
-		printf("main.cpp does not exist!\n");
-		exit(EXIT_FAILURE);
-	}
-	if(system("[ ! -x main -o main.cpp -nt main ]") == 0){
-		printf("compiling...\n");
-		system("g++ -o main main.cpp -Wall -O2 -g");
-	}
-	while((c = getopt(argc, argv, "cs")) != -1){
-		switch(c){
-			case 'c': fromClipboard = 1;
-					  break;
-			case 's': saveToInput = 1;
-					  break;
-		}
-	}
-	if(fromClipboard && !saveToInput){
-		system("xclip -selection c -o | ./main");
-	}
-	else if (fromClipboard && saveToInput){
-		system("xclip -selection c -o > input && echo \"\" >> input && ./main < input");
-	}
-	else if(!fromClipboard && !saveToInput){
-		system("./main < input");
-	}
-	return 0;
+int main(int argc, char *argv[]) {
+    int c = 0;
+    int fromClipboard = 0, saveToInput = 0, diff = 0;
+    if (system("[ -e main.cpp ]")) {
+        printf("main.cpp does not exist!\n");
+        exit(EXIT_FAILURE);
+    }
+    if (system("[ ! -x main -o main.cpp -nt main ]") == 0) {
+        printf("compiling...\n");
+        system("g++ -o main main.cpp -Wall -O2 -g");
+    }
+    while ((c = getopt(argc, argv, "csd")) != -1) {
+        switch (c) {
+        case 'c':
+            fromClipboard = 1;
+            break;
+        case 's':
+            saveToInput = 1;
+            break;
+        case 'd':
+            diff = 1;
+            break;
+        }
+    }
+    if (!diff) {
+        if (fromClipboard && !saveToInput) {
+            system("xclip -selection c -o | ./main");
+        } else if (fromClipboard && saveToInput) {
+            system(
+                "xclip -selection c -o > input && echo \"\" >> input && ./main "
+                "< input");
+        } else if (!fromClipboard && !saveToInput) {
+            system("./main < input");
+        }
+    } else if (!fromClipboard && !saveToInput) {
+        printf("Difference between outputs:\n");
+        system("xclip -sel c -o > output && ./main < input | diff -u - output");
+    } else {
+        printf("You cannot use the -d option with the options c or s\n");
+    }
+    return 0;
 }
