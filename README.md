@@ -2,7 +2,8 @@
 install zsh then install [oh my zsh](https://github.com/ohmyzsh/ohmyzsh).<br />
 Current theme is "jonathan" and add
 [autosuggestion and syntax highlighting](https://gist.github.com/dogrocker/1efb8fd9427779c827058f873b94df95)
-and source ~/.my_config.sh file at the end of .zshrc file
+and source ~/.my_config.sh file at the end of .zshrc file.<br />
+place the makefile in ~/.config/, that makefile is used in the compile function.
 ## my_config.sh
 ```zsh
 function touch_template {
@@ -10,21 +11,23 @@ function touch_template {
 		then
 			echo "main.cpp already exists. Do you want to overwrite it?(y/n)"
 			read ans
-			if [ "$ans" == "y" ]
+			if [ $ans = "y" ]
 				then
 					cat ~/.template > ./main.cpp
-					fi
 			else
-				cat ~/.template > ./main.cpp
+				echo "Canceling..."
 					fi
-					if [ ! -f ./input ]
-						then
-							touch input
-							fi
+	else
+		cat ~/.template > ./main.cpp
+			fi
+			if [ ! -f ./input ]
+				then
+					touch input
+					fi
 }
 alias acc="cd ~/Projects/C++/accelerated_c++/"
 alias comp="cd ~/Projects/C++/competitive_programming/"
-alias compile="g++ -g -O2 -Wall main.cpp -o main"
+# alias compile="g++ -g -O2 -Wall main.cpp -o main"
 alias main="touch_template"
 #alias run="xclip -selection c -o > ./input && ./main < input"
 function create_problem {
@@ -66,8 +69,12 @@ function movl {
 			echo "$1 is not a directory!"
 				fi
 }
+function compile {
+	make -I ~/.config/ $1
+}
 bindkey '^ ' autosuggest-accept
-export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin
+export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/node-v10.16.0-linux-x64/bin
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 ```
 # Bashrc File
 ## Styling prompt
