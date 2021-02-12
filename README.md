@@ -70,10 +70,14 @@ function movl {
 				fi
 }
 function compile {
-	make -I ~/.config/ $1
+	make -f ~/.config/makefile $1
 }
 bindkey '^ ' autosuggest-accept
-export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/node-v10.16.0-linux-x64/bin
+# export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/node-v10.16.0-linux-x64/bin
+# export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt
+export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/pc2-9.6.0/bin
+export JAVAHOME=/usr/lib/jvm/jdk-15.0.1
+export PC2HOME=/opt/pc2-9.6.0/
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 ```
 # Bashrc File

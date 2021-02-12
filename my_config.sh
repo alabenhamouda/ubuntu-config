@@ -19,7 +19,7 @@ function touch_template {
 }
 alias acc="cd ~/Projects/C++/accelerated_c++/"
 alias comp="cd ~/Projects/C++/competitive_programming/"
-alias compile="g++ -g -O2 -Wall main.cpp -o main"
+# alias compile="g++ -g -O2 -Wall main.cpp -o main"
 alias main="touch_template"
 #alias run="xclip -selection c -o > ./input && ./main < input"
 function create_problem {
@@ -61,6 +61,13 @@ function movl {
 		echo "$1 is not a directory!"
 	fi
 }
+function compile {
+	make -f ~/.config/makefile $1
+}
 bindkey '^ ' autosuggest-accept
-export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin
+# export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/node-v10.16.0-linux-x64/bin
+# export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt
+export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/pc2-9.6.0/bin
+export JAVAHOME=/usr/lib/jvm/jdk-15.0.1
+export PC2HOME=/opt/pc2-9.6.0/
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
