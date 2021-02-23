@@ -36,7 +36,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'justinmk/vim-sneak'
 Plugin 'preservim/tagbar'
 Plugin 'tpope/vim-surround'
-Plugin 'AndrewRadev/splitjoin.vim'
+" Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 Plugin 'Chiel92/vim-autoformat'
 " All of your Plugins must be added before the following line
@@ -50,7 +50,8 @@ set showcmd
 set termguicolors
 " set guifont=Monaco\ 20
 " set guifont=Monaco\ Nerd\ Font\ 20
-set guifont=Hack\ Nerd\ Font\ Mono\ 20
+" set guifont=Hack\ Nerd\ Font\ Mono\ 20
+set guifont=Cascadia\ Code\ PL\ 20
 set encoding=UTF-8
 set tabstop=4
 set shiftwidth=4
@@ -101,6 +102,9 @@ let vim_markdown_preview_github=1
 ab retret return ret
 
 "AUTOFORMAT UPON SAVING
-au BufWrite * :Autoformat
+let extension = expand('%:e')
+if (extension == "cpp") || (extension == "java") || (extension == "c")
+	au BufWrite * :Autoformat
+endif
 let g:formatdef_my_custom_cpp = '"clang-format -style=''{BasedOnStyle: LLVM, IndentWidth: 4}''"'
 let g:formatters_cpp = ['my_custom_cpp']

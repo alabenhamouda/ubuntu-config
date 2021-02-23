@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     }
     if (system("[ ! -x main -o main.cpp -nt main ]") == 0) {
         printf("compiling...\n");
-        system("g++ -o main main.cpp -Wall -O2 -g");
+        system("make -f ~/.config/makefile");
     }
     while ((c = getopt(argc, argv, "csd")) != -1) {
         switch (c) {
@@ -38,7 +38,8 @@ int main(int argc, char *argv[]) {
         }
     } else if (!fromClipboard && !saveToInput) {
         printf("Difference between outputs:\n");
-        system("xclip -sel c -o > output && ./main < input | diff -u - output");
+        system("xclip -sel c -o > output && ./main < input | diff "
+               "--color=always -u - output");
     } else {
         printf("You cannot use the -d option with the options c or s\n");
     }
