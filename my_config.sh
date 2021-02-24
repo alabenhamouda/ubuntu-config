@@ -64,6 +64,9 @@ function movl {
 function compile {
 	make -f ~/.config/makefile $1
 }
+function lslst {
+	ls --color=always -t | head -n $1
+}
 bindkey '^ ' autosuggest-accept
 # export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/node-v10.16.0-linux-x64/bin
 # export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt
