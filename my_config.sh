@@ -62,7 +62,19 @@ function movl {
 	fi
 }
 function compile {
-	make -f ~/.config/makefile $1
+	performance_mode=false;
+	while getopts "p" opt; do
+		if [ $opt = 'p' ]
+		then
+			performance_mode=true;
+		fi
+	done
+	if [ $performance_mode = 'true' ]
+	then
+		g++ -o $2 $2.cpp -O2
+	else
+		make -f ~/.config/makefile $1
+	fi
 }
 function lslst {
 	ls --color=always -t | head -n $1
@@ -70,7 +82,7 @@ function lslst {
 bindkey '^ ' autosuggest-accept
 # export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/node-v10.16.0-linux-x64/bin
 # export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt
-export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/pc2-9.6.0/bin
+export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/pc2-9.6.0/bin:/opt/Papyrus/
 export JAVAHOME=/usr/lib/jvm/jdk-15.0.1
 export PC2HOME=/opt/pc2-9.6.0/
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
