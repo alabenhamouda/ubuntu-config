@@ -54,27 +54,13 @@ function movl {
 	TOMOVE="$(ls -t ~/Downloads | head -n 1)"
 	if [ -d $1 ]
 	then
-		mv "/home/alabh/Downloads/$TOMOVE" $1
-		cd $1
-		echo done.
+		mv "/home/alabh/Downloads/$TOMOVE" $1 && cd $1 && echo done.
 	else
 		echo "$1 is not a directory!"
 	fi
 }
 function compile {
-	performance_mode=false;
-	while getopts "p" opt; do
-		if [ $opt = 'p' ]
-		then
-			performance_mode=true;
-		fi
-	done
-	if [ $performance_mode = 'true' ]
-	then
-		g++ -o $2 $2.cpp -O2
-	else
-		make -f ~/.config/makefile $1
-	fi
+	make -f ~/.config/makefile $1 $2
 }
 function lslst {
 	ls --color=always -t | head -n $1

@@ -4,4 +4,8 @@ WARNINGS = -Wall -Wextra -pedantic -std=c++17 -O2 -Wshadow -Wformat=2 -Wfloat-eq
 all: main
 
 %: %.cpp
+ifdef w
 	g++ -o $@ $^ $(WARNINGS)
+else 
+	g++ -o $@ $^ -O2
+endif
