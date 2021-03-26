@@ -42,6 +42,10 @@ let g:EasyMotion_smartcase = 1
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
 
+"use tab and shift tab to cycle through suggestions and <cr> to confirm
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "AUTOFORMAT UPON SAVING
 let extension = expand('%:e')
