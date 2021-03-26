@@ -9,6 +9,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 set tabstop=4
