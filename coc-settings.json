@@ -1,0 +1,6 @@
+{
+	"diagnostic.messageTarget": "echo",
+	"diagnostic.virtualTextPrefix": "  ",
+	"diagnostic.errorSign": "",
+	"diagnostic.virtualText": true
+}
