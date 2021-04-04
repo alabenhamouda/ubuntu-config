@@ -58,3 +58,5 @@ if (extension == "cpp") || (extension == "java") || (extension == "c")
 endif
 let g:formatdef_my_custom_cpp = '"clang-format -style=''{BasedOnStyle: LLVM, IndentWidth: 4}''"'
 let g:formatters_cpp = ['my_custom_cpp']
+
+ab read_tests int t; cin >> t;<CR>while(t--){<CR>
