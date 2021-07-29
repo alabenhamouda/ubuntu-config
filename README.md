@@ -194,5 +194,6 @@ Added inputrc file here to make tab key cycle through possible completions in te
 
 # Terminal styling
 Use this [github repo](https://github.com/Mayccoll/Gogh) to add themes to gnome terminal <br />
-Install this [font](https://github.com/microsoft/cascadia-code) <br />
+Install this [font](https://github.com/microsoft/cascadia-code) <br /> (this font doesn't provide all glyphs when tried on windows terminal) <br />
+[Here is the completely patched font](https://github.com/AaronFriel/nerd-fonts/releases/tag/v1.2.0)
 Current profile: Azu and increase font size to 16
