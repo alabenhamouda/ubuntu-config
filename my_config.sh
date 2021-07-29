@@ -72,3 +72,6 @@ export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/pc2-9.6.0/b
 export JAVAHOME=/usr/lib/jvm/jdk-15.0.1
 export PC2HOME=/opt/pc2-9.6.0/
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+
+# change TERM env variable so that tmux can display zsh suggestion color
+export TERM=xterm-256color
