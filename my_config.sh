@@ -19,9 +19,9 @@ function touch_template {
 }
 alias acc="cd ~/Projects/C++/accelerated_c++/"
 alias comp="cd ~/Projects/C++/competitive_programming/"
-# alias compile="g++ -g -O2 -Wall main.cpp -o main"
+alias bat="batcat"
 alias main="touch_template"
-#alias run="xclip -selection c -o > ./input && ./main < input"
+alias weather="curl -s \"wttr.in/el mourouj\""
 function create_problem {
 	comp
 	if [ -d ./$1 ]
@@ -66,9 +66,9 @@ function lslst {
 	ls --color=always -t | head -n $1
 }
 bindkey '^ ' autosuggest-accept
-# export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/node-v10.16.0-linux-x64/bin
-# export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt
-export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/pc2-9.6.0/bin:/opt/Papyrus/
+export PATH=$PATH:/usr/local/go/bin:/usr/lib/jvm/jdk-15.0.1/bin:/opt/pc2-9.6.0/bin:/opt/Papyrus/:/home/alabh/.yarn/bin/
 export JAVAHOME=/usr/lib/jvm/jdk-15.0.1
 export PC2HOME=/opt/pc2-9.6.0/
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+
+weather | head -n -2

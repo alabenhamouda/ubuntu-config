@@ -65,3 +65,6 @@ let g:formatdef_my_custom_cpp = '"clang-format -style=''{BasedOnStyle: LLVM, Ind
 let g:formatters_cpp = ['my_custom_cpp']
 
 ab readtsts int t; cin >> t;<CR>while(t--){<CR>
+
+"hit control n to toggle nerd tree
+nmap  :NERDTreeToggle
